@@ -1,0 +1,76 @@
+<!-- Header -->
+<div class="container-fluid" style="width: 1180px;">
+  <mat-toolbar class="fxLayout dark row-cols-auto border" style="
+width: 100%;
+height: 80px;
+flex-direction: row;
+justify-content: space-between;
+background-color: aliceblue;
+color: black;
+font-family: 'Mali', cursive;
+font-weight: bold;">
+    <div class="col-6">
+      <span>หมู หมึก กุ้ง</span>
+    </div>
+    <div>
+      {{today | date:"d MMMM yyyy เวลา HH:mm น."}}
+    </div>
+    <div><button routerLink="/" class="btn d-flex align-items-center justify-content-center"
+        style="width: 43px; height: 43px; border-radius: 60px; color: #00bbff; border-color: #00bbff;">
+        <mat-icon class="d-flex align-items-center justify-content-center" style="width: 24px; height: 24px;">home
+        </mat-icon>
+      </button>
+    </div>
+  </mat-toolbar>
+
+  <!-- text receipt -->
+  <div class="d-flex align-items-center justify-content-center border-start border-end" style="height: 50px;">
+    รายการใบเสร็จ
+  </div>
+  <div class="container-fluid border-bottom border-start border-end">
+    <div class="border" style="display: flex; flex-direction: column; margin-bottom: 10px;">
+
+      <!-- detail receipt -->
+      <div class="row-cols-2" style="display: flex;">
+        <div>
+          <div class="border">
+            <div class="justify-content-around align-items-center d-flex border-bottom"
+              style="height: 50px; background-color: aliceblue; font-weight: bold;">
+              <div class="col-2">ใบเสร็จที่	</div>
+              <div class="col-3">วันที่-เวลา</div>
+              <div class="col-1">โต๊ะ</div>
+              <div class="col-2">ราคารวม</div>
+            </div>
+            <div class="justify-content-around align-items-center d-flex border-bottom" style="height: 50px;">
+              <div class="col-2">1111</div>
+              <div class="col-3">1-1-1-2256</div>
+              <div class="col-1">2</div>
+              <div class="col-2">222</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Show Total -->
+        <div>
+          <div class="border">
+            <div class="justify-content-around align-items-center d-flex border-bottom"
+              style="height: 50px; background-color: aliceblue; font-weight: bold;">
+              <div class="col-3">รายการอาหาร</div>
+              <div class="col-1">ราคา</div>
+              <div class="col-1">จำนวน</div>
+              <div class="col-1">รวม</div>
+            </div>
+            <div class="justify-content-around align-items-center d-flex border-bottom" style="height: 50px;">
+              <div class="col-3">รายการอาหาร</div>
+              <div class="col-1">ราคา</div>
+              <div class="col-1">จำนวน</div>
+              <div class="col-1">รวม</div>
+            </div>
+            <div class="justify-content-end align-items-center d-flex" style="height: 50px;">
+              <div class="col-4">ราคารวมทั้งสิ้น</div>
+              <div class="col-1" style="margin-right: 30px;">99</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>

@@ -1,0 +1,23 @@
+<mat-toolbar class="fxLayout dark row-cols-auto border" style="
+width: 100%;
+height: 80px;
+flex-direction: row;
+justify-content: space-between;
+background-color: aliceblue;
+color: black;
+font-family: 'Mali', cursive;
+font-weight: bold;">
+  <div class="col-6">
+    <span>หมู หมึก กุ้ง</span>
+  </div>
+  <div>
+
+    {{today | date:"d MMMM yyyy เวลา HH:mm น."}}
+  </div>
+  <div><button routerLink="./" class="btn d-flex align-items-center justify-content-center"
+      style="width: 43px; height: 43px; border-radius: 60px; color: #00bbff; border-color: #00bbff;">
+      <mat-icon class="d-flex align-items-center justify-content-center" style="width: 24px; height: 24px;">grid_view
+      </mat-icon>
+    </button>
+  </div>
+</mat-toolbar>
