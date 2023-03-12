@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import {MatDialog} from '@angular/material/dialog';
+import { OrderComponent } from '../order/order.component';
 
 @Component({
   selector: 'app-menu',
@@ -8,9 +10,15 @@ import { Component } from '@angular/core';
 export class MenuComponent {
   today= new Date();
 
-  constructor() {
+  constructor(private dialog : MatDialog) {
     setInterval(() => {
       this.today = new Date()
     }, 1000)
+  }
+  Order(){
+    // this.dataService.countries = this.countries;
+    this.dialog.open(OrderComponent, {
+      minWidth: '300px',
+    });
   }
 }
