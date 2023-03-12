@@ -18,7 +18,7 @@ export class MenuComponent {
   Order(){
     // this.dataService.countries = this.countries;
     this.dialog.open(OrderComponent, {
-      minWidth: '300px',
+      minWidth: '260px',
     });
   }
 }
