@@ -26,7 +26,8 @@ font-weight: bold;">
   <!-- Select Table -->
   <div class="d-flex align-items-center justify-content-center border-start border-end" style="height: 50px;">
     เลือกโต๊ะ
-    <select class="form-select" style="width: 100px; margin: 10px;">
+    <select class="form-select" style="width: 100px; margin: 10px;" #selectedtable (change)="onSelected(selectedtable.value)">
+      <!-- <option *ngFor="let table of tables" [value]="table" [selected]="tables === table">{{table}}</option> -->
       <option value="1" selected>โต๊ะ 1</option>
       <option value="2">โต๊ะ 2</option>
       <option value="3">โต๊ะ 3</option>
@@ -45,16 +46,16 @@ font-weight: bold;">
               <button (click)="Order()" class="btn">
                 <div class="row-cols-1" style="width: 200px; height: 170px;">
                   <img
-                    src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bd/Color_icon_blue.svg/800px-Color_icon_blue.svg.png"
+                    src="https://www.thermosthailand.com/assets/blog/images/HERP-AdobeStock-197287315.png"
                     height="150" width="150px">
                   เครื่องดื่มไม่อั้น (30 บาท)
                 </div>
               </button>
 
-              <button class="btn">
+              <button (click)="Order()" class="btn">
                 <div class="row-cols-1" style="width: 200px; height: 170px;">
                   <img
-                    src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bd/Color_icon_blue.svg/800px-Color_icon_blue.svg.png"
+                    src="https://www.easycookingmenu.com/media/k2/items/cache/61fcd0e790aaecc2196628e2b1540295_XL.jpg"
                     height="150" width="150px">
                   ไอศกรีมไม่อั้น (30 บาท)
                 </div>
@@ -62,19 +63,19 @@ font-weight: bold;">
             </div>
 
             <div class="justify-content-around d-flex">
-              <button class="btn">
+              <button (click)="Order()" class="btn">
                 <div class="row-cols-1" style="width: 200px; height: 170px;">
                   <img
-                    src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bd/Color_icon_blue.svg/800px-Color_icon_blue.svg.png"
+                    src="https://www.chillpainai.com/src/wewakeup/scoop/images/996e56b30a036bbb98fa6c9777af28967f9cd462.jpg"
                     height="150" width="150px">
                   ชุดเล็กอิ่มคุ้ม (59 บาท)
                 </div>
               </button>
 
-              <button class="btn">
+              <button (click)="Order()" class="btn">
                 <div class="row-cols-1" style="width: 200px; height: 170px;">
                   <img
-                    src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bd/Color_icon_blue.svg/800px-Color_icon_blue.svg.png"
+                    src="https://www.chillpainai.com/src/wewakeup/scoop/images/a319f8b8750d5c7e4206f3f1e0175e6cae3a97ba.jpg"
                     height="150" width="150px">
                   ชุดใหญ่อิ่มแน่น (129 บาท)
                 </div>
@@ -82,19 +83,19 @@ font-weight: bold;">
             </div>
 
             <div class="justify-content-around d-flex">
-              <button class="btn">
+              <button (click)="Order()" class="btn">
                 <div class="row-cols-1" style="width: 200px; height: 170px;">
                   <img
-                    src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bd/Color_icon_blue.svg/800px-Color_icon_blue.svg.png"
+                    src="https://www.taokaecafe.com/asp-bin/pic_taokae/sh28425623.jpg"
                     height="150" width="150px">
                   บุฟเฟต์เด็ก (109 บาท)
                 </div>
               </button>
 
-              <button class="btn">
+              <button (click)="Order()" class="btn">
                 <div class="row-cols-1" style="width: 200px; height: 170px;">
                   <img
-                    src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bd/Color_icon_blue.svg/800px-Color_icon_blue.svg.png"
+                    src="https://www.taokaecafe.com/asp-bin/pic_taokae/sh28425623.jpg"
                     height="150" width="150px">
                   บุฟเฟต์ผู้ใหญ่ (159 บาท)
                 </div>
@@ -107,7 +108,7 @@ font-weight: bold;">
         <!-- Show Total -->
         <div>
           <span class="d-flex justify-content-center"
-            style="margin: 10px; font-weight: bold;">จัดการรายการอาหารของโต๊ะ</span>
+            style="margin: 10px; font-weight: bold;">จัดการรายการอาหารของโต๊ะ {{table}}</span>
           <div class="border" style="margin: 10px;">
             <div class="justify-content-around align-items-center d-flex border-bottom"
               style="height: 50px; background-color: aliceblue; font-weight: bold;">

@@ -9,10 +9,12 @@ import { OrderComponent } from '../order/order.component';
 })
 export class MenuComponent {
   today= new Date();
+  table = 1
 
   constructor(private dialog : MatDialog) {
     setInterval(() => {
       this.today = new Date()
+      console.log(this.table)
     }, 1000)
   }
   Order(){
@@ -21,4 +23,7 @@ export class MenuComponent {
       minWidth: '260px',
     });
   }
+  onSelected(value:any): void {
+		this.table = value;
+	}
 }
