@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import {MatDialog} from '@angular/material/dialog';
 import { OrderComponent } from '../order/order.component';
-
+import { ConfirmboxComponent } from '../confirmbox/confirmbox.component';
 @Component({
   selector: 'app-menu',
   templateUrl: './menu.component.html',
@@ -26,4 +26,9 @@ export class MenuComponent {
   onSelected(value:any): void {
 		this.table = value;
 	}
+  pay(){
+    this.dialog.open(ConfirmboxComponent, {
+      minWidth: '260px',
+    });
+  }
 }

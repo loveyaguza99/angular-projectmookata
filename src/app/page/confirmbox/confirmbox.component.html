@@ -1,0 +1,27 @@
+<div class="container-fluid">
+  <!-- หัวข้อยืนยัน -->
+  <div class="justify-content-between d-flex" style="margin: 20px;">
+    <p style="font-size: large; font-weight: bold;">ยืนยัน</p>
+
+    <button (click)="close()" class="btn-close" style="width: 10px; height: 10px; border-radius: 60px; color: #00bbff;">
+    </button>
+  </div>
+
+  <!-- ยืนยัน -->
+  <p class="justify-content-center d-flex" style="font-size: large;"><mat-icon style="margin-right: 10px;">report</mat-icon>ยืนยันชำระค่าอาหาร?</p>
+  <div class="justify-content-around align-items-center d-flex">
+
+
+  <!-- ปุ่มยกเลิกตกลง -->
+  <div class="d-flex justify-content-around" style="margin: 20px;">
+    <button (click)="close()" class="btn d-flex align-items-center justify-content-around"
+      style="background-color: #00bbff; color: ghostwhite; font-weight: bold;">
+      <mat-icon>clear</mat-icon>
+      <span>ยกเลิก</span></button>
+
+      <button (click)="confirm()" class="btn d-flex align-items-center justify-content-around"
+      style="background-color: #00bbff; color: ghostwhite; font-weight: bold; margin-left: 10px;">
+      <mat-icon>done</mat-icon>
+      <span>ตกลง</span></button>
+  </div>
+</div>

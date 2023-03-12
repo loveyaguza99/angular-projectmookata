@@ -11,6 +11,8 @@ import { MenuComponent } from './page/menu/menu.component';
 import { Routes, RouterModule } from '@angular/router';
 import { ReportComponent } from './page/report/report.component';
 import { OrderComponent } from './page/order/order.component';
+import { ConfirmboxComponent } from './page/confirmbox/confirmbox.component';
+import { OrderresultComponent } from './page/orderresult/orderresult.component';
 
 const appRoutes: Routes = [
   { path: '', component: MenuComponent},
@@ -24,6 +26,8 @@ const appRoutes: Routes = [
     MenuComponent,
     ReportComponent,
     OrderComponent,
+    ConfirmboxComponent,
+    OrderresultComponent,
   ],
   imports: [
     BrowserModule,
