@@ -3,6 +3,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import {MatIconModule} from '@angular/material/icon';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatDialogModule} from '@angular/material/dialog';
+import {MatListModule} from '@angular/material/list';
+import { HttpClientModule } from "@angular/common/http"
 
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -35,6 +37,8 @@ const appRoutes: Routes = [
     MatIconModule,
     MatToolbarModule,
     MatDialogModule,
+    MatListModule,
+    HttpClientModule,
     RouterModule.forRoot(appRoutes)
   ],
 

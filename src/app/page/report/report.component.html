@@ -36,19 +36,47 @@ font-weight: bold;">
           <div class="border">
             <div class="justify-content-around align-items-center d-flex border-bottom"
               style="height: 50px; background-color: aliceblue; font-weight: bold;">
-              <div class="col-2">ใบเสร็จที่	</div>
+              <div class="col-2">ใบเสร็จที่ </div>
               <div class="col-3">วันที่-เวลา</div>
               <div class="col-1">โต๊ะ</div>
               <div class="col-2">ราคารวม</div>
             </div>
-            <div class="justify-content-around align-items-center d-flex border-bottom" style="height: 50px;">
+
+            <!-- <div class="justify-content-around align-items-center d-flex border-bottom" style="height: 50px;">
               <div class="col-2">1111</div>
               <div class="col-3">1-1-1-2256</div>
               <div class="col-1">2</div>
               <div class="col-2">222</div>
-            </div>
+            </div> -->
+
+            <mat-selection-list *ngFor="let receipt of receipts"
+              class="justify-content-around align-items-center d-flex border-bottom btn" style="height: 50px;"
+              (click)="show(receipt.ref_id)">
+              <div>
+                {{receipt.ref_id}}
+              </div>
+              <div>
+                {{receipt.date_time}}
+              </div>
+              <div>
+                {{receipt.table_id}}
+              </div>
+              <div>
+                {{receipt.total_price}}
+              </div>
+            </mat-selection-list>
           </div>
         </div>
+
+        <!-- <mat-selection-list #landmark [multiple]="false" class="justify-content-around align-items-center d-flex border-bottom" style="height: 50px;">
+          <div *ngFor="let receipt of receipts"
+            style="width: 400px; height: 160px;">
+
+            <div>
+              {{receipt.ref_id}}
+            </div>
+          </div>
+        </mat-selection-list> -->
 
         <!-- Show Total -->
         <div>
@@ -60,12 +88,34 @@ font-weight: bold;">
               <div class="col-1">จำนวน</div>
               <div class="col-1">รวม</div>
             </div>
-            <div class="justify-content-around align-items-center d-flex border-bottom" style="height: 50px;">
+
+            <!-- <div class="justify-content-around align-items-center d-flex border-bottom" style="height: 50px;">
               <div class="col-3">รายการอาหาร</div>
               <div class="col-1">ราคา</div>
               <div class="col-1">จำนวน</div>
               <div class="col-1">รวม</div>
+            </div> -->
+
+            <mat-selection-list *ngFor="let order of orders"
+            class="justify-content-around align-items-center d-flex border-bottom btn" style="height: 50px;">
+            <div>
+              {{order.menu}}
             </div>
+            <div>
+              {{order.price}}
+            </div>
+            <div>
+              {{order.count}}
+            </div>
+            <div>
+              {{order.total_price}}
+            </div>
+          </mat-selection-list>
+        </div>
+      </div>
+
+
+
             <div class="justify-content-end align-items-center d-flex" style="height: 50px;">
               <div class="col-4">ราคารวมทั้งสิ้น</div>
               <div class="col-1" style="margin-right: 30px;">99</div>

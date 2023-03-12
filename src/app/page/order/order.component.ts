@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { MatDialogRef } from '@angular/material/dialog';
+import { DataService } from 'src/app/service/data.service';
 
 @Component({
   selector: 'app-order',
@@ -8,7 +9,14 @@ import { MatDialogRef } from '@angular/material/dialog';
 })
 export class OrderComponent {
   amount = 1;
-  constructor(private dialogRef: MatDialogRef<OrderComponent>) {}
+  menu:any;
+  menuprice:any;
+  constructor(private dialogRef: MatDialogRef<OrderComponent>, private dataService: DataService) {
+    this.menu = dataService.menu;
+    this.menuprice = dataService.price;
+    console.log("edit  menu ", this.menu);
+    console.log("edit  price ", this.menuprice);
+  }
   close() {
     this.dialogRef.close();
   }
