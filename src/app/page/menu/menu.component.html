@@ -26,7 +26,8 @@ font-weight: bold;">
   <!-- Select Table -->
   <div class="d-flex align-items-center justify-content-center border-start border-end" style="height: 50px;">
     เลือกโต๊ะ
-    <select class="form-select" style="width: 100px; margin: 10px;" #selectedtable (change)="onSelected(selectedtable.value)">
+    <select class="form-select" style="width: 100px; margin: 10px;" #selectedtable
+      (change)="onSelected(selectedtable.value)">
       <!-- <option *ngFor="let table of tables" [value]="table" [selected]="tables === table">{{table}}</option> -->
       <option value="1" selected>โต๊ะ 1</option>
       <option value="2">โต๊ะ 2</option>
@@ -45,8 +46,7 @@ font-weight: bold;">
             <div class="justify-content-around d-flex">
               <button (click)="Order('เครื่องดื่มไม่อั้น (30 บาท)', 30)" class="btn">
                 <div class="row-cols-1" style="width: 200px; height: 170px;">
-                  <img
-                    src="https://www.thermosthailand.com/assets/blog/images/HERP-AdobeStock-197287315.png"
+                  <img src="https://www.thermosthailand.com/assets/blog/images/HERP-AdobeStock-197287315.png"
                     height="150" width="150px">
                   เครื่องดื่มไม่อั้น (30 บาท)
                 </div>
@@ -85,18 +85,14 @@ font-weight: bold;">
             <div class="justify-content-around d-flex">
               <button (click)="Order('บุฟเฟต์เด็ก (109 บาท)', 109)" class="btn">
                 <div class="row-cols-1" style="width: 200px; height: 170px;">
-                  <img
-                    src="https://www.taokaecafe.com/asp-bin/pic_taokae/sh28425623.jpg"
-                    height="150" width="150px">
+                  <img src="https://www.taokaecafe.com/asp-bin/pic_taokae/sh28425623.jpg" height="150" width="150px">
                   บุฟเฟต์เด็ก (109 บาท)
                 </div>
               </button>
 
               <button (click)="Order('บุฟเฟต์ผู้ใหญ่ (159 บาท)', 159)" class="btn">
                 <div class="row-cols-1" style="width: 200px; height: 170px;">
-                  <img
-                    src="https://www.taokaecafe.com/asp-bin/pic_taokae/sh28425623.jpg"
-                    height="150" width="150px">
+                  <img src="https://www.taokaecafe.com/asp-bin/pic_taokae/sh28425623.jpg" height="150" width="150px">
                   บุฟเฟต์ผู้ใหญ่ (159 บาท)
                 </div>
               </button>
@@ -107,8 +103,8 @@ font-weight: bold;">
 
         <!-- Show Total -->
         <div>
-          <span class="d-flex justify-content-center"
-            style="margin: 10px; font-weight: bold;">จัดการรายการอาหารของโต๊ะ {{table}}</span>
+          <span class="d-flex justify-content-center" style="margin: 10px; font-weight: bold;">จัดการรายการอาหารของโต๊ะ
+            {{tablenumber}}</span>
           <div class="border" style="margin: 10px;">
             <div class="justify-content-around align-items-center d-flex border-bottom"
               style="height: 50px; background-color: aliceblue; font-weight: bold;">
@@ -117,15 +113,36 @@ font-weight: bold;">
               <div class="col-1">จำนวน</div>
               <div class="col-1">รวม</div>
             </div>
-            <div class="justify-content-around align-items-center d-flex border-bottom" style="height: 50px;">
+
+              <mat-selection-list *ngFor="let list of tablex"
+                class="justify-content-around align-items-center d-flex border-bottom btn" style="height: 50px;">
+                <div>
+                  {{list.menu}}
+                </div>
+                <div>
+                  {{list.price}}
+                </div>
+                <div>
+                  {{list.count}}
+                </div>
+                <div>
+                  {{list.totalprice}}
+                </div>
+              </mat-selection-list>
+
+
+            <!-- <div class="justify-content-around align-items-center d-flex border-bottom" style="height: 50px;">
               <div class="col-3">รายการอาหาร</div>
               <div class="col-1">ราคา</div>
               <div class="col-1">จำนวน</div>
               <div class="col-1">รวม</div>
-            </div>
+            </div> -->
+
+
+
             <div class="justify-content-end align-items-center d-flex" style="height: 50px;">
               <div class="col-4">ราคารวมทั้งสิ้น</div>
-              <div class="col-1" style="margin-right: 30px;">99</div>
+              <div class="col-1" style="margin-right: 30px;">{{this.sum}}</div>
             </div>
           </div>
           <div class="d-flex justify-content-center">
@@ -135,6 +152,6 @@ font-weight: bold;">
               <span>ชำระเงิน</span></button>
           </div>
         </div>
-
       </div>
     </div>
+
