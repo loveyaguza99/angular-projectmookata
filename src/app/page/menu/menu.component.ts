@@ -16,27 +16,27 @@ export class MenuComponent {
   tablex: any;
   sum: any = 0;
 
-  table1 = Array.of({ menu: '', price: 0, count: 0, totalprice: 0 });
-  table2 = Array.of({ menu: '', price: 0, count: 0, totalprice: 0 });
-  table3 = Array.of({ menu: '', price: 0, count: 0, totalprice: 0 });
-  table4 = Array.of({ menu: '', price: 0, count: 0, totalprice: 0 });
+  table1 = Array.of();
+  table2 = Array.of();
+  table3 = Array.of();
+  table4 = Array.of();
 
-  s = { menu: 'Daisy', price: 21, count: 1, totalprice: 22 }; //0
-  a = { menu: 'Rose', price: 18, count: 2, totalprice: 36 }; //1
-  b = { menu: 'Lily', price: 25, count: 1, totalprice: 25 }; //2
-  p = { menu: 'Lily1', price: 25, count: 1, totalprice: 25 }; //3
-  o = { menu: 'Lily2', price: 25, count: 1, totalprice: 25 }; //4
+  // s = { menu: 'Daisy', price: 21, count: 1, totalprice: 22 }; //0
+  // a = { menu: 'Rose', price: 18, count: 2, totalprice: 36 }; //1
+  // b = { menu: 'Lily', price: 25, count: 1, totalprice: 25 }; //2
+  // p = { menu: 'Lily1', price: 25, count: 1, totalprice: 25 }; //3
+  // o = { menu: 'Lily2', price: 25, count: 1, totalprice: 25 }; //4
 
   constructor(private dialog: MatDialog, private dataService: DataService) {
     setInterval(() => {
       this.today = new Date();
       this.sum = dataService.sum;
-    }, 250);
+    }, 0);
 
-    dataService.table1.splice(0, 1);
-    dataService.table2.splice(0, 1);
-    dataService.table3.splice(0, 1);
-    dataService.table4.splice(0, 1);
+    // dataService.table1.splice(0, 1);
+    // dataService.table2.splice(0, 1);
+    // dataService.table3.splice(0, 1);
+    // dataService.table4.splice(0, 1);
 
     dataService.tablex = dataService.table1;
     this.tablex = dataService.tablex;
@@ -88,12 +88,5 @@ export class MenuComponent {
     this.dialog.open(ConfirmboxComponent, {
       minWidth: '260px',
     });
-  }
-  calsum() {
-    this.dataService.sum = 0;
-    this.dataService.tablex.forEach((element: any) => {
-      this.dataService.sum += element.totalprice;
-    });
-    console.log("order sum ",this.dataService.sum);
   }
 }

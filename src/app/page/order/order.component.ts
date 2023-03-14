@@ -34,8 +34,7 @@ export class OrderComponent {
     console.log('totalprice : ', this.totalprice);
   }
   remove() {
-    if (this.amount == 1) {
-    } else {
+    if (this.amount > 1) {
       this.amount = this.amount - 1;
       this.totalprice = this.amount * this.menuprice;
       console.log('remove : ', this.amount);
