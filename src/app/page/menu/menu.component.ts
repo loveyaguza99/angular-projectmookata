@@ -30,28 +30,15 @@ export class MenuComponent {
   constructor(private dialog: MatDialog, private dataService: DataService) {
     setInterval(() => {
       this.today = new Date();
+      this.calsum();
       this.sum = dataService.sum;
     }, 0);
 
-    // dataService.table1.splice(0, 1);
-    // dataService.table2.splice(0, 1);
-    // dataService.table3.splice(0, 1);
-    // dataService.table4.splice(0, 1);
-
+    // default table = table1
     dataService.tablex = dataService.table1;
     this.tablex = dataService.tablex;
     console.log(this.tablex.length);
 
-    // dataService.table4.push(this.s);
-    // this.table2.push(this.a);
-    // this.table3.push(this.b);
-    // this.table4.push(this.p);
-    // this.tablex = this.table1;
-    // this.menuarray.push(this.a);
-    // this.menuarray.push(this.b);
-    // this.menuarray.push(this.p);
-    // this.menuarray.push(this.o);
-    // console.log("test ", this.menuarray);
   }
   Order(menu: any, menuprice: any) {
     this.dataService.menu = menu;
@@ -88,5 +75,12 @@ export class MenuComponent {
     this.dialog.open(ConfirmboxComponent, {
       minWidth: '260px',
     });
+  }
+  calsum() {
+    this.dataService.sum = 0;
+    this.dataService.tablex.forEach((element: any) => {
+      this.dataService.sum += element.totalprice;
+    });
+    // console.log("order sum ",this.dataService.sum);
   }
 }
