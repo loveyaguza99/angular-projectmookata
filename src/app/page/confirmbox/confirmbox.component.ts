@@ -13,6 +13,7 @@ import { Convert as ReceiptCvt, Receipt } from 'src/app/model/receipt.model';
 })
 export class ConfirmboxComponent {
   receipts = Array<Receipt>();
+  lastref_id: any;
   constructor(
     private dialog: MatDialog,
     private dialogRef: MatDialogRef<ConfirmboxComponent>,
@@ -29,18 +30,49 @@ export class ConfirmboxComponent {
     this.http
       .get(
         this.dataService.apiEndpoint +
-          '/insertreceipt/' +
-          this.dataService.tablenumber +
-          '/' +
-          this.dataService.sum
+        '/insertreceipt/' +
+        this.dataService.tablenumber +
+        '/' +
+        this.dataService.sum
       )
-      .subscribe((data: any) => {
-        this.receipts = ReceiptCvt.toReceipt(JSON.stringify(data));
-        console.log(this.receipts);
+      .subscribe(() => {
+        console.log('fuck you JSON')
+        this.http
+          .get(
+            this.dataService.apiEndpoint +
+            '/findlastreceipt'
+          )
+          .subscribe((data: any) => {
+            this.receipts = ReceiptCvt.toReceipt(JSON.stringify(data));
+
+            this.receipts.forEach((element: any) => {
+              this.lastref_id = element.ref_id;
+            });
+
+            console.log('last_id', this.lastref_id);
+
+            //get order list
+            this.dataService.tablex.forEach((element: any) => {
+              //adding order
+              this.http
+                .get(
+                  this.dataService.apiEndpoint +
+                  '/insertorder/' + element.menu + '/' + element.price + '/' + element.count + '/' + element.totalprice + '/' + this.lastref_id)
+                .subscribe(() => {
+                  console.log('adding : ', this.dataService.apiEndpoint +
+                    '/insertorder/' + element.menu + '/' + element.price + '/' + element.count + '/' + element.totalprice + '/' + this.lastref_id)
+                  })
+            })
+          })
       });
+
+
+
+
     this.dialogRef.close();
     this.dialog.open(OrderresultComponent, {
       minWidth: '500px',
+      disableClose: true
     });
   }
   calsum() {

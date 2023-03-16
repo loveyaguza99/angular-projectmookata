@@ -1,26 +1,59 @@
 <!-- Show Total -->
 <div>
-  <span class="d-flex justify-content-center" style="margin: 10px; font-weight: bold;">จัดการรายการอาหารของโต๊ะ
-    {{1}}</span>
-  <div class="border" style="margin: 10px;">
-    <div class="justify-content-around align-items-center d-flex border-bottom"
-      style="height: 50px; background-color: aliceblue; font-weight: bold;">
-      <div class="col-3">รายการอาหาร</div>
-      <div class="col-1">ราคา</div>
-      <div class="col-1">จำนวน</div>
-      <div class="col-1">รวม</div>
+  <span
+  class="d-flex justify-content-center"
+  style="margin: 10px; font-weight: bold"
+  >จัดการรายการอาหารของโต๊ะ {{ tablenumber }}</span
+>
+    <div class="border" style="margin: 10px">
+      <div
+        class="justify-content-around align-items-center d-flex border-bottom"
+        style="
+          height: 50px;
+          background-color: aliceblue;
+          font-weight: bold;
+        "
+      >
+        <div class="col-3">รายการอาหาร</div>
+        <div class="col-1">ราคา</div>
+        <div class="col-1">จำนวน</div>
+        <div class="col-1">รวม</div>
+      </div>
+
+      <mat-selection-list
+        *ngFor="let list of tablex"
+        class="justify-content-around align-items-center d-flex border-bottom btn"
+        style="height: 50px"
+      >
+        <div>
+          {{ list.menu }}
+        </div>
+        <div>
+          {{ list.price }}
+        </div>
+        <div>
+          {{ list.count }}
+        </div>
+        <div>
+          {{ list.totalprice }}
+        </div>
+      </mat-selection-list>
+
+      <!-- <div class="justify-content-around align-items-center d-flex border-bottom" style="height: 50px;">
+        <div class="col-3">รายการอาหาร</div>
+        <div class="col-1">ราคา</div>
+        <div class="col-1">จำนวน</div>
+        <div class="col-1">รวม</div>
+      </div> -->
+
+      <div
+        class="justify-content-end align-items-center d-flex"
+        style="height: 50px"
+      >
+        <div class="col-4">ราคารวมทั้งสิ้น</div>
+        <div class="col-1" style="margin-right: 30px">{{ this.sum }}</div>
+      </div>
     </div>
-    <div class="justify-content-around align-items-center d-flex border-bottom" style="height: 50px;">
-      <div class="col-3">รายการอาหาร</div>
-      <div class="col-1">ราคา</div>
-      <div class="col-1">จำนวน</div>
-      <div class="col-1">รวม</div>
-    </div>
-    <div class="justify-content-end align-items-center d-flex" style="height: 50px;">
-      <div class="col-4">ราคารวมทั้งสิ้น</div>
-      <div class="col-1" style="margin-right: 30px;">99</div>
-    </div>
-  </div>
   <div class="justify-content-center d-flex" style="margin: 10px;">
     <button (click)="close()" class="btn d-flex align-items-center justify-content-around"
       style="background-color: #00bbff; color: ghostwhite; font-weight: bold;">

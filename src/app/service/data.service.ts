@@ -8,7 +8,7 @@ export class DataService {
   menu: any;
   price: any;
   amount: any;
-  totalprice: any;
+  totalprice: any = 0;
   tablex: any;
   tablenumber: any = 1;
   sum: any = 0;

@@ -71,6 +71,7 @@ export class OrderComponent {
         totalprice: this.totalprice,
       });
     }
+    this.dialogRef.close();
     this.calsum();
   }
   calsum() {
@@ -78,6 +79,6 @@ export class OrderComponent {
     this.dataService.tablex.forEach((element: any) => {
       this.dataService.sum += element.totalprice;
     });
-    console.log("order sum ",this.dataService.sum);
+    console.log("order sum ", this.dataService.sum);
   }
 }

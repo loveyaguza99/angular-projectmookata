@@ -21,17 +21,10 @@ export class MenuComponent {
   table3 = Array.of();
   table4 = Array.of();
 
-  // s = { menu: 'Daisy', price: 21, count: 1, totalprice: 22 }; //0
-  // a = { menu: 'Rose', price: 18, count: 2, totalprice: 36 }; //1
-  // b = { menu: 'Lily', price: 25, count: 1, totalprice: 25 }; //2
-  // p = { menu: 'Lily1', price: 25, count: 1, totalprice: 25 }; //3
-  // o = { menu: 'Lily2', price: 25, count: 1, totalprice: 25 }; //4
-
   constructor(private dialog: MatDialog, private dataService: DataService) {
     setInterval(() => {
       this.today = new Date();
       this.calsum();
-      this.sum = dataService.sum;
     }, 0);
 
     // default table = table1
@@ -45,6 +38,7 @@ export class MenuComponent {
     this.dataService.price = menuprice;
     this.dialog.open(OrderComponent, {
       minWidth: '260px',
+      disableClose: true
     });
     console.log('data ', this.dataService.menu);
   }
@@ -74,13 +68,10 @@ export class MenuComponent {
   pay() {
     this.dialog.open(ConfirmboxComponent, {
       minWidth: '260px',
+      disableClose: true
     });
   }
   calsum() {
-    this.dataService.sum = 0;
-    this.dataService.tablex.forEach((element: any) => {
-      this.dataService.sum += element.totalprice;
-    });
-    // console.log("order sum ",this.dataService.sum);
+      this.sum = this.dataService.sum;
   }
 }
