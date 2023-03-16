@@ -3,7 +3,6 @@ import { MatDialog } from '@angular/material/dialog';
 import { OrderComponent } from '../order/order.component';
 import { ConfirmboxComponent } from '../confirmbox/confirmbox.component';
 import { DataService } from 'src/app/service/data.service';
-import { delay } from 'rxjs';
 
 @Component({
   selector: 'app-menu',
@@ -72,6 +71,10 @@ export class MenuComponent {
     });
   }
   calsum() {
-      this.sum = this.dataService.sum;
+    this.dataService.sum = 0;
+    this.dataService.tablex.forEach((element: any) => {
+      this.dataService.sum += element.totalprice;
+    });
+    this.sum = this.dataService.sum;
   }
 }

@@ -12,9 +12,10 @@ export class OrderComponent {
   menu: any;
   menuprice: any;
   totalprice: any;
+
   constructor(
     private dialogRef: MatDialogRef<OrderComponent>,
-    private dataService: DataService
+    private dataService: DataService,
   ) {
     this.menu = dataService.menu;
     this.menuprice = dataService.price;
@@ -71,14 +72,14 @@ export class OrderComponent {
         totalprice: this.totalprice,
       });
     }
+    // this.calsum();
     this.dialogRef.close();
-    this.calsum();
   }
-  calsum() {
-    this.dataService.sum = 0;
-    this.dataService.tablex.forEach((element: any) => {
-      this.dataService.sum += element.totalprice;
-    });
-    console.log("order sum ", this.dataService.sum);
-  }
+  // calsum() {
+  //   this.dataService.sum = 0;
+  //   this.dataService.tablex.forEach((element: any) => {
+  //     this.dataService.sum += element.totalprice;
+  //   });
+  //   console.log("order sum ", this.dataService.sum);
+  // }
 }
