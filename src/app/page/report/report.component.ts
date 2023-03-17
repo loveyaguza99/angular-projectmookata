@@ -10,7 +10,7 @@ import { Convert as OrderCvt, Order } from 'src/app/model/order.model';
   styleUrls: ['./report.component.scss'],
 })
 export class ReportComponent {
-  today = new Date();
+  today: any;
   receipt: any;
   receipts = Array<Receipt>();
   order:any;
@@ -21,7 +21,9 @@ export class ReportComponent {
   constructor(private dataService: DataService, private http: HttpClient) {
     setInterval(() => {
       this.today = new Date();
-    }, 1000);
+      const formatter = new Intl.DateTimeFormat('th-TH', { day: 'numeric', month: 'long', year: 'numeric', hour:'numeric', minute:'numeric'});
+      this.today = formatter.format(this.today);
+    }, 10);
 
     http.get(dataService.apiEndpoint + '/receipts').subscribe((data: any) => {
       this.receipts = ReceiptCvt.toReceipt(JSON.stringify(data));

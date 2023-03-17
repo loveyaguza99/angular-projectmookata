@@ -12,7 +12,7 @@ import { EditremoveorderComponent } from '../editremoveorder/editremoveorder.com
   styleUrls: ['./menu.component.scss'],
 })
 export class MenuComponent {
-  today = new Date();
+  today: any;
   tablenumber = 1;
   tablex: any;
   sum: any = 0;
@@ -25,8 +25,11 @@ export class MenuComponent {
   constructor(private dialog: MatDialog, private dataService: DataService) {
     setInterval(() => {
       this.today = new Date();
+      const formatter = new Intl.DateTimeFormat('th-TH', { day: 'numeric', month: 'long', year: 'numeric', hour:'numeric', minute:'numeric'});
+      this.today = formatter.format(this.today);
+
       this.calsum();
-    }, 0);
+    }, 10);
 
     // default table = table1
     dataService.tablex = dataService.table1;
@@ -56,28 +59,28 @@ export class MenuComponent {
   //   });
 
 
-    // this.dataService.tablex.forEach((element: any) => {
-    //   if (element.menu && menu.includes(element.menu)) {
-    //     this.dialog.open(EditorderComponent, {
-    //       minWidth: '260px',
-    //       disableClose: true
-    //     });
-    //     console.log('duplicate value : ', element.menu);
-    //   }
-    //   else {
-    //     this.dialog.open(OrderComponent, {
-    //       minWidth: '260px',
-    //       disableClose: true
-    //     });
-    //     console.log('data ', element.menu);
-    //   }
-    // })
+  // this.dataService.tablex.forEach((element: any) => {
+  //   if (element.menu && menu.includes(element.menu)) {
+  //     this.dialog.open(EditorderComponent, {
+  //       minWidth: '260px',
+  //       disableClose: true
+  //     });
+  //     console.log('duplicate value : ', element.menu);
+  //   }
+  //   else {
+  //     this.dialog.open(OrderComponent, {
+  //       minWidth: '260px',
+  //       disableClose: true
+  //     });
+  //     console.log('data ', element.menu);
+  //   }
+  // })
 
-    // this.dialog.open(OrderComponent, {
-    //   minWidth: '260px',
-    //   disableClose: true
-    // });
-    // console.log('undefined', this.dataService.tablex.menu);
+  // this.dialog.open(OrderComponent, {
+  //   minWidth: '260px',
+  //   disableClose: true
+  // });
+  // console.log('undefined', this.dataService.tablex.menu);
   // }
   Order(menu: any, menuprice: any) {
     this.dataService.menu = menu;
@@ -140,7 +143,7 @@ export class MenuComponent {
     });
     this.sum = this.dataService.sum;
   }
-  editremoveOrder(menu: any){
+  editremoveOrder(menu: any) {
     this.dataService.menu = menu;
     this.dialog.open(EditremoveorderComponent, {
       minWidth: '260px',
