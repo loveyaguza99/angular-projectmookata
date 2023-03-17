@@ -71,6 +71,7 @@ export class OrderComponent {
         count: this.amount,
         totalprice: this.totalprice,
       });
+
     }
     // this.calsum();
     this.dialogRef.close();
