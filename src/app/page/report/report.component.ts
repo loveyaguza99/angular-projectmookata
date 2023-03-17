@@ -11,11 +11,12 @@ import { Convert as OrderCvt, Order } from 'src/app/model/order.model';
 })
 export class ReportComponent {
   today = new Date();
-  receipt = 1;
+  receipt: any;
   receipts = Array<Receipt>();
-  order = 1;
+  order:any;
   orders = Array<Order>();
-  ref_id = 5;
+  ref_id: any;
+  totalprice: any;
 
   constructor(private dataService: DataService, private http: HttpClient) {
     setInterval(() => {
@@ -31,9 +32,11 @@ export class ReportComponent {
       console.log(this.orders);
     });
   }
-  show(ref_id:any){
+  show(ref_id: any, sum:any) {
     this.ref_id = ref_id
+    this.totalprice = sum
     console.log(ref_id)
+    console.log(sum)
     this.http.get(this.dataService.apiEndpoint + '/orderofref/' + this.ref_id).subscribe((data: any) => {
       this.orders = OrderCvt.toOrder(JSON.stringify(data));
       console.log(this.orders);

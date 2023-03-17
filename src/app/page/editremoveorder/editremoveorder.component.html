@@ -29,11 +29,19 @@
     </button>
   </div>
 
-  <!-- ปุ่มยืนยันการเพิ่ม -->
+  <!-- ปุ่มปรับปรุง -->
   <div class="d-flex justify-content-center" style="margin: 20px;">
     <button (click)="editorder()" class="btn d-flex align-items-center justify-content-around"
       style="background-color: #00bbff; color: ghostwhite; font-weight: bold; width: 100%;">
       <mat-icon>done</mat-icon>
-      <span>ปรับปรุงขรายการ</span></button>
+      <span>ปรับปรุงรายการ</span></button>
   </div>
+
+    <!-- ปุ่มลบ -->
+    <div class="d-flex justify-content-center" style="margin: 20px;">
+      <button (click)="deleteorder()" class="btn d-flex align-items-center justify-content-around"
+        style="background-color: red; color: ghostwhite; font-weight: bold; width: 100%;">
+        <mat-icon>clear</mat-icon>
+        <span>ลบรายการ</span></button>
+    </div>
 </div>

@@ -4,6 +4,7 @@ import { OrderComponent } from '../order/order.component';
 import { ConfirmboxComponent } from '../confirmbox/confirmbox.component';
 import { DataService } from 'src/app/service/data.service';
 import { EditorderComponent } from '../editorder/editorder.component';
+import { EditremoveorderComponent } from '../editremoveorder/editremoveorder.component';
 
 @Component({
   selector: 'app-menu',
@@ -83,7 +84,7 @@ export class MenuComponent {
     this.dataService.price = menuprice;
     let isNewOrder = true;
     for (let i = 0; i < this.dataService.tablex.length; i++) {
-      if (this.dataService.tablex[i].menu !== undefined) {
+      if (this.dataService.tablex[i].menu == menu) {
         isNewOrder = false;
         break;
       }
@@ -138,5 +139,12 @@ export class MenuComponent {
       this.dataService.sum += element.totalprice;
     });
     this.sum = this.dataService.sum;
+  }
+  editremoveOrder(menu: any){
+    this.dataService.menu = menu;
+    this.dialog.open(EditremoveorderComponent, {
+      minWidth: '260px',
+      disableClose: true
+    });
   }
 }

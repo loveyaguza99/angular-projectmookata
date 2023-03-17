@@ -179,27 +179,27 @@
                 font-weight: bold;
               "
             >
-              <div class="col-3">รายการอาหาร</div>
-              <div class="col-1">ราคา</div>
-              <div class="col-1">จำนวน</div>
-              <div class="col-1">รวม</div>
+              <div class="col-5" align="center">รายการอาหาร</div>
+              <div class="col-2" align="center">ราคา</div>
+              <div class="col-2" align="center">จำนวน</div>
+              <div class="col-2" align="center">รวม</div>
             </div>
 
             <mat-selection-list
               *ngFor="let list of tablex"
               class="justify-content-around align-items-center d-flex border-bottom btn"
-              style="height: 50px"
+              style="height: 50px" (click)="editremoveOrder(list.menu)"
             >
-              <div>
+              <div class="col-5" align="left" style="margin-left: 20px;">
                 {{ list.menu }}
               </div>
-              <div>
+              <div class="col-2" align="center">
                 {{ list.price }}
               </div>
-              <div>
+              <div class="col-2" align="center">
                 {{ list.count }}
               </div>
-              <div>
+              <div class="col-2" align="center">
                 {{ list.totalprice }}
               </div>
             </mat-selection-list>

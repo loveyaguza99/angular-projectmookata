@@ -6,7 +6,7 @@ use Psr\Http\Message\ServerRequestInterface as Request;
 $app->get('/receipts', function (Request $request, Response $response) {
     $conn = $GLOBALS['connect'];
     $sql = "SELECT ref_id 'ref_id',
-    CONCAT(DATE_FORMAT(date_time, '%e %b', 'th_TH'), (YEAR(date_time)+543), DATE_FORMAT(date_time, ' %H:%i น.')) 'date_time' ,
+    CONCAT(DATE_FORMAT(date_time, '%e %b ', 'th_TH'), (YEAR(date_time)+543), DATE_FORMAT(date_time, ' %H:%i น.')) 'date_time' ,
     table_id 'table_id', total_price 'total_price'
     FROM receipts
     ORDER BY date_time DESC";

@@ -14,10 +14,10 @@
           font-weight: bold;
         "
       >
-        <div class="col-3">รายการอาหาร</div>
-        <div class="col-1">ราคา</div>
-        <div class="col-1">จำนวน</div>
-        <div class="col-1">รวม</div>
+      <div class="col-5" align="center">รายการอาหาร</div>
+      <div class="col-2" align="center">ราคา</div>
+      <div class="col-2" align="center">จำนวน</div>
+      <div class="col-2" align="center">รวม</div>
       </div>
 
       <mat-selection-list
@@ -25,18 +25,18 @@
         class="justify-content-around align-items-center d-flex border-bottom btn"
         style="height: 50px"
       >
-        <div>
-          {{ list.menu }}
-        </div>
-        <div>
-          {{ list.price }}
-        </div>
-        <div>
-          {{ list.count }}
-        </div>
-        <div>
-          {{ list.totalprice }}
-        </div>
+      <div class="col-5" align="left" style="margin-left: 20px;">
+        {{ list.menu }}
+      </div>
+      <div class="col-2" align="center">
+        {{ list.price }}
+      </div>
+      <div class="col-2" align="center">
+        {{ list.count }}
+      </div>
+      <div class="col-2" align="center">
+        {{ list.totalprice }}
+      </div>
       </mat-selection-list>
 
       <!-- <div class="justify-content-around align-items-center d-flex border-bottom" style="height: 50px;">

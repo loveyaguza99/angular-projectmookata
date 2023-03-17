@@ -3,18 +3,18 @@ import { MatDialogRef } from '@angular/material/dialog';
 import { DataService } from 'src/app/service/data.service';
 
 @Component({
-  selector: 'app-editorder',
-  templateUrl: './editorder.component.html',
-  styleUrls: ['./editorder.component.scss']
+  selector: 'app-editremoveorder',
+  templateUrl: './editremoveorder.component.html',
+  styleUrls: ['./editremoveorder.component.scss']
 })
-export class EditorderComponent {
+export class EditremoveorderComponent {
   amount: any = 1;
   menu: any;
   menuprice: any;
   totalprice: any;
 
   constructor(
-    private dialogRef: MatDialogRef<EditorderComponent>,
+    private dialogRef: MatDialogRef<EditremoveorderComponent>,
     private dataService: DataService,
   ) {
     this.menu = dataService.menu;
@@ -100,6 +100,16 @@ export class EditorderComponent {
         });
       }
     // this.calsum();
+    this.dialogRef.close();
+  }
+
+  deleteorder(){
+    this.menu = this.dataService.menu;
+    for (let i = 0; i < this.dataService.tablex.length; i++) {
+      if (this.dataService.tablex[i].menu == this.menu) {
+        this.dataService.tablex.splice(i, 1);
+      }
+    }
     this.dialogRef.close();
   }
 
