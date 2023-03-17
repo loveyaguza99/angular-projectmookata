@@ -3,18 +3,18 @@ import { MatDialogRef } from '@angular/material/dialog';
 import { DataService } from 'src/app/service/data.service';
 
 @Component({
-  selector: 'app-order',
-  templateUrl: './order.component.html',
-  styleUrls: ['./order.component.scss'],
+  selector: 'app-editorder',
+  templateUrl: './editorder.component.html',
+  styleUrls: ['./editorder.component.scss']
 })
-export class OrderComponent {
+export class EditorderComponent {
   amount: any = 1;
   menu: any;
   menuprice: any;
   totalprice: any;
 
   constructor(
-    private dialogRef: MatDialogRef<OrderComponent>,
+    private dialogRef: MatDialogRef<EditorderComponent>,
     private dataService: DataService,
   ) {
     this.menu = dataService.menu;

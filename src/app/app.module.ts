@@ -15,6 +15,7 @@ import { ReportComponent } from './page/report/report.component';
 import { OrderComponent } from './page/order/order.component';
 import { ConfirmboxComponent } from './page/confirmbox/confirmbox.component';
 import { OrderresultComponent } from './page/orderresult/orderresult.component';
+import { EditorderComponent } from './page/editorder/editorder.component';
 
 const appRoutes: Routes = [
   { path: '', component: MenuComponent},
@@ -30,6 +31,7 @@ const appRoutes: Routes = [
     OrderComponent,
     ConfirmboxComponent,
     OrderresultComponent,
+    EditorderComponent,
   ],
   imports: [
     BrowserModule,

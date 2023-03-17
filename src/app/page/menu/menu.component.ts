@@ -3,6 +3,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { OrderComponent } from '../order/order.component';
 import { ConfirmboxComponent } from '../confirmbox/confirmbox.component';
 import { DataService } from 'src/app/service/data.service';
+import { EditorderComponent } from '../editorder/editorder.component';
 
 @Component({
   selector: 'app-menu',
@@ -32,15 +33,76 @@ export class MenuComponent {
     console.log(this.tablex.length);
 
   }
+  // Order(menu: any, menuprice: any) {
+  //   this.dataService.menu = menu;
+  //   this.dataService.price = menuprice;
+
+
+  //   this.dataService.tablex.forEach((element: any) => {
+  //     if (element.menu === undefined) {
+  //       this.dialog.open(OrderComponent, {
+  //         minWidth: '260px',
+  //         disableClose: true
+  //       });
+  //       console.log('Opening OrderComponent');
+  //     } else if (menu.includes(element.menu)) {
+  //       this.dialog.open(EditorderComponent, {
+  //         minWidth: '260px',
+  //         disableClose: true
+  //       });
+  //       console.log('Opening EditorderComponent');
+  //     }
+  //   });
+
+
+    // this.dataService.tablex.forEach((element: any) => {
+    //   if (element.menu && menu.includes(element.menu)) {
+    //     this.dialog.open(EditorderComponent, {
+    //       minWidth: '260px',
+    //       disableClose: true
+    //     });
+    //     console.log('duplicate value : ', element.menu);
+    //   }
+    //   else {
+    //     this.dialog.open(OrderComponent, {
+    //       minWidth: '260px',
+    //       disableClose: true
+    //     });
+    //     console.log('data ', element.menu);
+    //   }
+    // })
+
+    // this.dialog.open(OrderComponent, {
+    //   minWidth: '260px',
+    //   disableClose: true
+    // });
+    // console.log('undefined', this.dataService.tablex.menu);
+  // }
   Order(menu: any, menuprice: any) {
     this.dataService.menu = menu;
     this.dataService.price = menuprice;
-    this.dialog.open(OrderComponent, {
-      minWidth: '260px',
-      disableClose: true
-    });
-    console.log('data ', this.dataService.menu);
+    let isNewOrder = true;
+    for (let i = 0; i < this.dataService.tablex.length; i++) {
+      if (this.dataService.tablex[i].menu !== undefined) {
+        isNewOrder = false;
+        break;
+      }
+    }
+    if (isNewOrder) {
+      this.dialog.open(OrderComponent, {
+        minWidth: '260px',
+        disableClose: true
+      });
+      console.log('Opening OrderComponent');
+    } else {
+      this.dialog.open(EditorderComponent, {
+        minWidth: '260px',
+        disableClose: true
+      });
+      console.log('Opening EditorderComponent');
+    }
   }
+
   onSelected(value: any): void {
     this.dataService.tablenumber = value;
     this.tablenumber = this.dataService.tablenumber;
