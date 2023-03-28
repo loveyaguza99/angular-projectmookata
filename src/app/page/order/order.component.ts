@@ -72,15 +72,6 @@ export class OrderComponent {
         totalprice: this.totalprice,
       });
     }
-
-    // this.calsum();
     this.dialogRef.close();
   }
-  // calsum() {
-  //   this.dataService.sum = 0;
-  //   this.dataService.tablex.forEach((element: any) => {
-  //     this.dataService.sum += element.totalprice;
-  //   });
-  //   console.log("order sum ", this.dataService.sum);
-  // }
 }

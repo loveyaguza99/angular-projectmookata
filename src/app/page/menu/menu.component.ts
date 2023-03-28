@@ -25,7 +25,7 @@ export class MenuComponent {
   constructor(private dialog: MatDialog, private dataService: DataService) {
     setInterval(() => {
       this.today = new Date();
-      const formatter = new Intl.DateTimeFormat('th-TH', { day: 'numeric', month: 'long', year: 'numeric', hour:'numeric', minute:'numeric'});
+      const formatter = new Intl.DateTimeFormat('th-TH', { day: 'numeric', month: 'long', year: 'numeric', hour: 'numeric', minute: 'numeric' });
       this.today = formatter.format(this.today);
 
       this.calsum();
@@ -37,51 +37,7 @@ export class MenuComponent {
     console.log(this.tablex.length);
 
   }
-  // Order(menu: any, menuprice: any) {
-  //   this.dataService.menu = menu;
-  //   this.dataService.price = menuprice;
 
-
-  //   this.dataService.tablex.forEach((element: any) => {
-  //     if (element.menu === undefined) {
-  //       this.dialog.open(OrderComponent, {
-  //         minWidth: '260px',
-  //         disableClose: true
-  //       });
-  //       console.log('Opening OrderComponent');
-  //     } else if (menu.includes(element.menu)) {
-  //       this.dialog.open(EditorderComponent, {
-  //         minWidth: '260px',
-  //         disableClose: true
-  //       });
-  //       console.log('Opening EditorderComponent');
-  //     }
-  //   });
-
-
-  // this.dataService.tablex.forEach((element: any) => {
-  //   if (element.menu && menu.includes(element.menu)) {
-  //     this.dialog.open(EditorderComponent, {
-  //       minWidth: '260px',
-  //       disableClose: true
-  //     });
-  //     console.log('duplicate value : ', element.menu);
-  //   }
-  //   else {
-  //     this.dialog.open(OrderComponent, {
-  //       minWidth: '260px',
-  //       disableClose: true
-  //     });
-  //     console.log('data ', element.menu);
-  //   }
-  // })
-
-  // this.dialog.open(OrderComponent, {
-  //   minWidth: '260px',
-  //   disableClose: true
-  // });
-  // console.log('undefined', this.dataService.tablex.menu);
-  // }
   Order(menu: any, menuprice: any) {
     this.dataService.menu = menu;
     this.dataService.price = menuprice;

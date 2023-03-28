@@ -50,6 +50,7 @@ export class EditorderComponent {
     }
   }
   editorder() {
+    this.totalprice = this.amount * this.menuprice;
       if (this.dataService.tablenumber == 1) {
         for (let i = 0; i < this.dataService.tablex.length; i++) {
           if (this.dataService.tablex[i].menu == this.menu) {
@@ -99,15 +100,6 @@ export class EditorderComponent {
           totalprice: this.totalprice,
         });
       }
-    // this.calsum();
     this.dialogRef.close();
   }
-
-  // calsum() {
-  //   this.dataService.sum = 0;
-  //   this.dataService.tablex.forEach((element: any) => {
-  //     this.dataService.sum += element.totalprice;
-  //   });
-  //   console.log("order sum ", this.dataService.sum);
-  // }
 }

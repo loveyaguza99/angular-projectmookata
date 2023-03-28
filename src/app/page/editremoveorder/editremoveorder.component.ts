@@ -50,60 +50,60 @@ export class EditremoveorderComponent {
     }
   }
   editorder() {
-      if (this.dataService.tablenumber == 1) {
-        for (let i = 0; i < this.dataService.tablex.length; i++) {
-          if (this.dataService.tablex[i].menu == this.menu) {
-            this.dataService.table1.splice(i, 1);
-          }
+    this.totalprice = this.amount * this.menuprice;
+    if (this.dataService.tablenumber == 1) {
+      for (let i = 0; i < this.dataService.tablex.length; i++) {
+        if (this.dataService.tablex[i].menu == this.menu) {
+          this.dataService.table1.splice(i, 1);
         }
-        this.dataService.table1.push({
-          menu: this.menu,
-          price: this.menuprice,
-          count: this.amount,
-          totalprice: this.totalprice,
-        });
-      } else if (this.dataService.tablenumber == 2) {
-        for (let i = 0; i < this.dataService.tablex.length; i++) {
-          if (this.dataService.tablex[i].menu == this.menu) {
-            this.dataService.table2.splice(i, 1);
-          }
-        }
-        this.dataService.table2.push({
-          menu: this.menu,
-          price: this.menuprice,
-          count: this.amount,
-          totalprice: this.totalprice,
-        });
-      } else if (this.dataService.tablenumber == 3) {
-        for (let i = 0; i < this.dataService.tablex.length; i++) {
-          if (this.dataService.tablex[i].menu == this.menu) {
-            this.dataService.table3.splice(i, 1);
-          }
-        }
-        this.dataService.table3.push({
-          menu: this.menu,
-          price: this.menuprice,
-          count: this.amount,
-          totalprice: this.totalprice,
-        });
-      } else if (this.dataService.tablenumber == 4) {
-        for (let i = 0; i < this.dataService.tablex.length; i++) {
-          if (this.dataService.tablex[i].menu == this.menu) {
-            this.dataService.table4.splice(i, 1);
-          }
-        }
-        this.dataService.table4.push({
-          menu: this.menu,
-          price: this.menuprice,
-          count: this.amount,
-          totalprice: this.totalprice,
-        });
       }
-    // this.calsum();
+      this.dataService.table1.push({
+        menu: this.menu,
+        price: this.menuprice,
+        count: this.amount,
+        totalprice: this.totalprice,
+      });
+    } else if (this.dataService.tablenumber == 2) {
+      for (let i = 0; i < this.dataService.tablex.length; i++) {
+        if (this.dataService.tablex[i].menu == this.menu) {
+          this.dataService.table2.splice(i, 1);
+        }
+      }
+      this.dataService.table2.push({
+        menu: this.menu,
+        price: this.menuprice,
+        count: this.amount,
+        totalprice: this.totalprice,
+      });
+    } else if (this.dataService.tablenumber == 3) {
+      for (let i = 0; i < this.dataService.tablex.length; i++) {
+        if (this.dataService.tablex[i].menu == this.menu) {
+          this.dataService.table3.splice(i, 1);
+        }
+      }
+      this.dataService.table3.push({
+        menu: this.menu,
+        price: this.menuprice,
+        count: this.amount,
+        totalprice: this.totalprice,
+      });
+    } else if (this.dataService.tablenumber == 4) {
+      for (let i = 0; i < this.dataService.tablex.length; i++) {
+        if (this.dataService.tablex[i].menu == this.menu) {
+          this.dataService.table4.splice(i, 1);
+        }
+      }
+      this.dataService.table4.push({
+        menu: this.menu,
+        price: this.menuprice,
+        count: this.amount,
+        totalprice: this.totalprice,
+      });
+    }
     this.dialogRef.close();
   }
 
-  deleteorder(){
+  removeorder() {
     this.menu = this.dataService.menu;
     for (let i = 0; i < this.dataService.tablex.length; i++) {
       if (this.dataService.tablex[i].menu == this.menu) {
@@ -112,12 +112,4 @@ export class EditremoveorderComponent {
     }
     this.dialogRef.close();
   }
-
-  // calsum() {
-  //   this.dataService.sum = 0;
-  //   this.dataService.tablex.forEach((element: any) => {
-  //     this.dataService.sum += element.totalprice;
-  //   });
-  //   console.log("order sum ", this.dataService.sum);
-  // }
 }
