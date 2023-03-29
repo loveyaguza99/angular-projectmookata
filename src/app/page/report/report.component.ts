@@ -17,6 +17,7 @@ export class ReportComponent {
   orders = Array<Order>();
   ref_id: any;
   totalprice: any;
+  p = 1;
 
   constructor(private dataService: DataService, private http: HttpClient) {
     setInterval(() => {

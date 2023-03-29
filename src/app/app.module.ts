@@ -5,6 +5,8 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatListModule} from '@angular/material/list';
 import { HttpClientModule } from "@angular/common/http"
+import {NgxPaginationModule} from 'ngx-pagination'; // <-- import the module
+import {MatPaginatorModule} from '@angular/material/paginator';
 
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -43,6 +45,8 @@ const appRoutes: Routes = [
     MatDialogModule,
     MatListModule,
     HttpClientModule,
+    NgxPaginationModule,
+    MatPaginatorModule,
     RouterModule.forRoot(appRoutes)
   ],
 
